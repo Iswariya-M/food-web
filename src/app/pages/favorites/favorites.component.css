@@ -1,0 +1,64 @@
+/* header */
+header{
+  min-height: 25vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  background-image: url('../../../assets/banner.jpg'); 
+  background-size: cover;  
+  background-repeat: no-repeat;
+  
+  /*background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/banner.jpg') center/cover no-repeat fixed;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.navbar{
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1.2rem;
+}
+.navbar-brand{
+  color: #fff;
+  font-size: 2rem;
+  display: flex;
+  text-align: center;
+  text-decoration: none;
+  font-family: var(--Playfair);
+  letter-spacing: 1px;
+}
+.navbar-nav{
+  padding: 0.8rem 0 0.2rem 0;
+  text-align: center;
+  display: flex;
+}
+.navbar-nav a{
+  text-transform: uppercase;
+  font-family: var(--Roboto);
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.4rem 0.1rem;
+  letter-spacing: 3px;
+  transition: opacity 0.5s ease;
+}
+.navbar-nav a:hover{
+  opacity: 0.7;
+}
+
+/* Add this to your styles.css or relevant style file */
+.favorite-item {
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  .favorite-image {
+    width: 100px; /* Adjust the width as needed */
+    height: auto;
+  }
+  
+  .favorite-title {
+    text-align: center;
+    margin-top: 5px;
+  }
+  

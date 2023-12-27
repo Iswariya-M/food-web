@@ -1,0 +1,93 @@
+<app-contact></app-contact>
+<br>
+<div>
+    <section class="content">
+        <div>
+            <img src="../../../assets/start image.jpg" class="image">
+        </div>
+        <div class="text">
+            <h1>Welcome to our website</h1>
+            <h3>LET’S TALK FOOD,shall we?</h3>
+            <p>Hey there! We're thrilled you've dropped by Flavorful Moments. Here, our recipes are crafted for the real, everyday moments – celebrating the joy of good food that fits into your life seamlessly. We're all about real foods and healthy recipes, but let's be honest, life's too short to skip the perfect chocolate chip cookie or a bit of cheese on cheese on cheese. After all, health is all about balance, isn't it?</p>
+                <br>
+                <p>This is your culinary hub for an array of recipes – from our tried-and-true favorites to clever meal prep ideas, quick Instant Pot wonders, or even rescuing those sad greens in your fridge that are begging for a tasty makeover.</p>
+                <br>
+                <p>So, welcome to the kitchen adventure! Have a blast exploring, and we hope you stumble upon (or deliberately discover) something that makes your taste buds dance with joy.
+            </p>
+        </div>
+    </section>
+    <br>
+
+    <section> 
+      <div class = "blog" id = "blog">
+        <div class = "container">
+          <h2 style="align-items: center;text-align: center;justify-content: center;">OUR RECIPES</h2>
+          <div class = "blog-content">
+           
+              <div class = "blog-img" *ngFor="let foodItem of  categories">
+                <a [routerLink]="['/category', foodItem.category]">
+                  <img [src]="foodItem.imageUrl" alt="">
+                <span>{{ foodItem.category }}</span></a>
+              </div>
+            </div>
+        </div>
+      </div>
+     </section>
+
+    <section>
+      <h2 class="tit">Search our recipes</h2>
+      <div class="banner">
+        <div class="container">
+          <form (ngSubmit)="search()" #searchForm="ngForm">
+              <input type="text" class="search-input" placeholder="find your food . . ." [(ngModel)]="item" name="searchQuery" #searchQuery="ngModel">
+              <button type="submit" class="search-btn">
+                  <img src="../../../assets/icons8-search-50.png">
+              </button>
+          </form>
+      </div>
+    </div>
+    <div class="food" id="food">
+      <div class="container">
+        <div class="food-content">
+          <div *ngIf="showResults">
+            <div *ngIf="filteredBlogItems.length > 0; else noResults">
+            <div class="food-item" *ngFor="let foodItem of filteredBlogItems">
+            <div class="food-img">
+              <img [src]="foodItem.imageUrl" alt="">
+              <span>{{ foodItem.category }}</span>
+            </div>
+            <div class="food-title">
+              <h2>{{ foodItem.title }}</h2>
+              <p>{{ foodItem.description }}</p>
+            </div>
+    
+            <button (click)="addToFavorites(foodItem)" class="add-to-favorites-btn">
+              Add to Favorites
+            </button>
+    
+            <button [routerLink]="['/blog', foodItem.id]" class="read-btn">Read More</button>
+          </div>
+        </div>
+        <ng-template #noResults>
+          <p>No results found</p>
+        </ng-template>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+  
+  
+
+    <footer>
+        <div class = "social-links">
+          <p>Follow us</p>
+          <a href = "#"><img src="../../../assets/icons8-facebook-64.png"></a>
+          <a href = "#"><img src="../../../assets/icons8-twitter-squared-48.png"></a>
+          <a href = "#"><img src="../../../assets/icons8-instagram-48.png"></a>
+          <a href = "#"><img src="../../../assets/icons8-pinterest-48.png"></a>
+        </div>
+        <span>Food Blog Page</span>
+      </footer>
+
+</div>

@@ -1,0 +1,43 @@
+<app-contact></app-contact>
+
+<div *ngIf="blogItem" class="blog-container">
+  <div class="blog-header">
+    <div class="blog-title">
+    <h1>{{ blogItem.title }}</h1>
+    </div>
+    <div class="blogdes">
+      <img [src]="blogItem.imageUrl" alt="{{ blogItem.title }}" class="left-image">
+      <p class="right-description">{{ blogItem.description }}</p>
+    </div>
+  </div>
+  <h1 style="display: flex;justify-content: center;">PROCEDURE</h1>
+  <div class="step-container" style="display: flex;justify-content: center;flex-direction: row;gap:30px;margin:30px;">
+   
+        <section class="blog-text">
+        <br>
+        <h2 class="text">Ingredients You Need To Make</h2>
+        <br>
+        <ul>
+          <li *ngFor="let ingredient of blogItem.ingredients">{{ ingredient }}</li>
+        </ul>
+      </section>
+      <section class="blog-inst">
+        <h2>INSTRUCTIONS</h2>
+        <br>
+        <div *ngFor="let instruction of blogItem.instructions">
+          <h1>{{ instruction.step }}</h1>
+          <h2>{{instruction.title}}</h2>
+          <p>{{ instruction.text }}</p>
+          <br>
+        </div>
+      </section>
+    </div>
+ </div>
+<div *ngIf="!blogItem">
+  <p>Loading...</p>
+</div>
+
+
+
+
+  

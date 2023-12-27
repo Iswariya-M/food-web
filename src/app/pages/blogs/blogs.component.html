@@ -1,0 +1,126 @@
+<body>
+<header>
+  <nav class = "navbar navbar-expand-lg">
+    <div class = "container">
+      <a routerLink="/blogs" class = "navbar-brand">Tasty Tales</a>
+      <div class = "navbar-nav">            
+        <a [routerLink]= "['/blogs']">home</a>
+        <a routerLink = "/start">Start Here</a>
+        <a routerLink = "/recipe">recipe</a>
+        <a routerLink = "/about">about</a>
+        <a routerLink="">logout</a>
+      </div>
+    </div>
+  </nav> 
+  <div class = "banner">
+    <div class = "container">
+      <h1 class = "banner-title">
+        <span>Food &</span> Tasty recipes
+      </h1>
+      <p>Simple recipes made for real,actual for everyday life</p>
+  
+
+      <form (ngSubmit)="search()" #searchForm="ngForm">
+        <input type="text" class="search-input" placeholder="find your food . . ." [(ngModel)]="item" name="searchQuery" #searchQuery="ngModel">
+        <button type="submit" class="search-btn">
+          <img src="../../../assets/icons8-search-50.png">
+        </button>
+      </form>
+
+
+
+    </div>
+  </div>
+ 
+</header>
+
+
+<section class="food" id="food">
+  <div class="container">
+   
+
+    <div class="food-content">
+      <div *ngIf="showResults">
+        <div *ngIf="filteredBlogItems.length > 0; else noResults">
+        <div class="food-item" *ngFor="let foodItem of filteredBlogItems">
+        <div class="food-img">
+          <a  [routerLink]="['/blog', foodItem.id]"><img [src]="foodItem.imageUrl" alt="">
+          <span>{{ foodItem.category }}</span></a>
+        </div>
+        <div class="food-title">
+          <h2>{{ foodItem.title }}</h2>
+          <p>{{ foodItem.description }}</p>
+        </div>
+
+        <button (click)="addToFavorites(foodItem)" class="add-to-favorites-btn">
+          Add to Favorites
+        </button>
+
+        <button [routerLink]="['/blog', foodItem.id]" class="read-btn">Read More</button>
+
+      
+    </div>
+    </div>
+    <ng-template #noResults>
+      <p>No results found</p>
+    </ng-template>
+
+  </div>
+
+
+<!-- View Favorites button -->
+<button (click)="viewFavorites()" class="view-favorites-btn">
+  View Favorites
+</button>
+
+</div>
+</div>
+</section>
+
+
+  <!-- about -->
+  <section class = "about" id = "about">
+    <div class = "container">
+      <div class = "about-content">
+        <div>
+          <img src = "./assets/banner.jpg" alt = "">
+        </div>
+        <div class = "about-text">
+          <div class = "title">
+            <h2>Announcing the Spring Bucket List</h2>
+            <p>A variety of eight recipes</p>
+          </div>
+          <p>Introducing the Pinch of Yum Spring Bucket List! Jump feet-first into a happy, colorful, fresh eating season by making these flavor-packed recipes and entering yourself to win fun prizes!</p>
+          <p>The Spring Bucket List is a collection of 8 recipes that I consider must-makes for spring! These are some of our tried and true, most popular, come back to it every year favorite recipes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of about -->
+
+
+
+
+
+  <!-- end of design-->
+ 
+
+  
+
+  <!-- footer -->
+  <footer>
+    <div class = "social-links">
+      <p>Follow us</p>
+      <a href = "#"><img src="../../../assets/icons8-facebook-64.png"></a>
+      <a href = "#"><img src="../../../assets/icons8-twitter-squared-48.png"></a>
+      <a href = "#"><img src="../../../assets/icons8-instagram-48.png"></a>
+      <a href = "#"><img src="../../../assets/icons8-pinterest-48.png"></a>
+    </div>
+    <span>Food Blog Page</span>
+  </footer>
+  
+</body>
+
+
+ 
+  

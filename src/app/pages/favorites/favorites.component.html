@@ -1,0 +1,12 @@
+<app-contact></app-contact>
+
+<div *ngFor="let favoriteItem of favorites">
+  <div class="favorite-item">
+    <img [src]="favoriteItem.imageUrl" alt="{{ favoriteItem.title }}" class="favorite-image">
+    <div class="favorite-title">{{ favoriteItem.title }}</div>
+  </div>
+  <button (click)="deleteFavorites(favoriteItem)"><img src="../../../assets/icons8-delete-button-24.png"></button>
+  <a [routerLink]="['/blog', favoriteItem.id]">Read More</a>
+  
+</div>
+

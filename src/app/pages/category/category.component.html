@@ -1,0 +1,29 @@
+<app-contact></app-contact>
+<body>
+<div class="food" id="food">
+  <div class="container">
+    
+      <div *ngIf="categoryItems && categoryItems.length > 0">
+        <div class="food-content">
+        <div *ngFor="let item of categoryItems" class="food-item">
+          
+         
+          <div class="food-img">
+           <a  [routerLink]="['/blog', item.id]"> <img [src]="item.imageUrl" alt="{{ item.title }} Image">
+            <span>{{ item.category }}</span></a>
+          </div>
+          <div class="food-title">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.description }}</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+
+<div *ngIf="!categoryItems || categoryItems.length === 0">
+  <p>No blog items found for the category "{{ category }}"</p>
+</div>
+</body>
